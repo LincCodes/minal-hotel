@@ -1,3 +1,20 @@
+<script>
+
+    import { supabase } from '../supabaseClient'
+    import {goto} from '$app/navigation';
+
+    // @ts-ignore
+    async function login(e) {
+
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const { user, error } = await supabase.auth.signIn({email,password,})
+        console.log("user",user);
+        console.log("error",error);
+        goto("/")
+    }
+</script>
+
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark" id="mainNav">
         <div class="container"><a class="navbar-brand" href="/">Minal Hotel</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
@@ -14,7 +31,7 @@
     </nav>
     <section class="register-photo">
         <div class="form-container">
-            <form method="post">
+            <form on:submit|preventDefault={login}>
                 <h2 class="text-center">LOGIN</h2>
                 <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>

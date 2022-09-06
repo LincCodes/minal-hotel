@@ -1,3 +1,24 @@
+<script>
+
+    import { supabase } from '../supabaseClient'
+    import {goto} from '$app/navigation';
+    
+        // @ts-ignore
+    async function signup(e) {
+
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const pass = e.target.pass.value;
+        if(password==pass){
+            const { user, error } = await supabase.auth.signUp({email,password,})
+            console.log("user",user);
+            console.log("error",error);
+            goto("/")
+        }
+        
+    }
+</script>
+
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark" id="mainNav">
         <div class="container"><a class="navbar-brand" href="/">Minal Hotel</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
@@ -15,11 +36,11 @@
     <section class="register-photo">
         <div class="form-container">
             <div class="image-holder"></div>
-            <form method="post">
+            <form on:submit|preventDefault={signup}>
                 <h2 class="text-center">CREATE AN ACCOUNT</h2>
                 <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"></div>
+                <div class="mb-3"><input class="form-control" type="password" name="pass" placeholder="Confirm Password"></div>
                 <div class="mb-3">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
                 </div>
