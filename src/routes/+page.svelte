@@ -30,15 +30,15 @@
             <div class="row articles" style="padding: 0;">
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="single.jpg"></a>
                     <h3 class="name">Single</h3>
-                    <p class="description">$100</p>
+                    <p class="description">K100</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="fam.jpg"></a>
                     <h3 class="name">Family</h3>
-                    <p class="description">$250</p>
+                    <p class="description">K250</p>
                 </div>
                 <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="pres.jpg"></a>
                     <h3 class="name">Presidential</h3>
-                    <p class="description">$400</p>
+                    <p class="description">K400</p>
                 </div>
             </div>
         </div>
